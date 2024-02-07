@@ -1,0 +1,33 @@
+
+.todo-item {
+    min-width: 500px;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #ccc;
+    border-radius: 9px;
+    padding: 20px 4px 20px 4px;
+    margin: 20px;
+}
+
+.btn-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.btn-todo { 
+    width: 28px;
+    height: 28px;
+    padding: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 15px;
+}
+
+.no-select {
+    user-select: none;
+}
+
+.min-height-300px { 
+    min-height: 150px;
+}

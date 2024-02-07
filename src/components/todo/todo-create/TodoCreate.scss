@@ -1,0 +1,17 @@
+
+.rounded {
+    border-radius: 50%!important;
+}
+
+.add-button {
+    text-align: center;
+    color: green;
+    font-size: 30px;
+    display: relative;
+    top: 10px;
+    cursor: pointer;
+    user-select: none;
+    &:hover {
+        opacity: 0.56;
+    }
+}
