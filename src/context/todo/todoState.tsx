@@ -1,7 +1,9 @@
-import React, { useReducer } from "react";
+import * as React from 'react';
+import { useReducer } from "react";
 import { todoReducer } from "./todoReducer";
 import { TodoContext } from "./todoContext";
 import { ADD_TODO_ITEM, GET_TODO_LIST, REMOVE_TODO_ITEM_BY_ID } from './todoTypes';
+import { ITodoItem } from "../../components/types/ITodoItem";
 
 const initialState = {
     todo: {  
@@ -9,7 +11,7 @@ const initialState = {
     }
 }
 
-export const TodoState = ({children}) => {
+export const TodoState = ({children}: { children: any }) => {
 
     const [state, dispatch] = useReducer(todoReducer, initialState);
 
@@ -17,9 +19,9 @@ export const TodoState = ({children}) => {
 
     const getTodoList = () => dispatch({type: GET_TODO_LIST});
 
-    const addTodoItem = (todoItem) => dispatch({type: ADD_TODO_ITEM, todoItem});
+    const addTodoItem = (todoItem: ITodoItem) => dispatch({type: ADD_TODO_ITEM, todoItem});
 
-    const removeTodoItemById = (id) => dispatch({type: REMOVE_TODO_ITEM_BY_ID, id});
+    const removeTodoItemById = (id: number) => dispatch({type: REMOVE_TODO_ITEM_BY_ID, id});
 
     return (
         <TodoContext.Provider value={{

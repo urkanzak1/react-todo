@@ -1,4 +1,5 @@
-import React, { useContext, useEffect } from 'react';
+import * as React from "react";
+import { useContext, useEffect } from 'react';
 import { TodoContext } from '../../../context/todo/todoContext';
 import { TodoItem } from '../todo-item/TodoItem';
 import "./TodoList.scss";
@@ -13,8 +14,6 @@ export const TodoList = () => {
         },
         // eslint-disable-next-line
     []);
-
-    console.log(todoList);
 
     return (
         <div className="todoList">

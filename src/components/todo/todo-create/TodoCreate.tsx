@@ -1,4 +1,5 @@
-import React, { useContext, useState } from "react";
+import * as React from 'react';
+import { useContext, useState } from "react";
 import { TodoContext } from "../../../context/todo/todoContext";
 import "./TodoCreate.scss";
 
@@ -11,7 +12,6 @@ export const TodoCreate = () => {
     });
 
     const onClickHandler = () => {
-        console.log(state);
         if (state.name && state.text){
             addTodoItem({
                 name: state.name,
@@ -25,24 +25,17 @@ export const TodoCreate = () => {
         }
     }
 
-    const onTaskNameInputHandler = (event) => {
+    const onTodoCreateInputHandler = (event: any) => {
         setState({
             ...state,
-            name: event.target.value
+            [event.target.name]: event.target.value
         });
-    }
-    
-    const onTaskTextInputHanlder = (event) => {
-        setState({
-            ...state,
-            text: event.target.value
-        })
     }
 
     return (
         <div className="TodoAdd">
-            <input className="form-control my-3" type="text" placeholder="input task name..." value={state.name || ''} onInput={onTaskNameInputHandler} />
-            <input className="form-control" type="text" placeholder="input task text..." value={state.text || ''} onInput={onTaskTextInputHanlder}  />
+            <input name="name" className="form-control my-3" type="text" placeholder="input task name..." value={state.name || ''} onInput={onTodoCreateInputHandler} />
+            <input name="text" className="form-control" type="text" placeholder="input task text..." value={state.text || ''} onInput={onTodoCreateInputHandler}  />
             <div className="add-button rounded my-3" onClick={onClickHandler}>Add +</div>
         </div>
     )
