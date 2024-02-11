@@ -3,7 +3,7 @@ import { useReducer } from "react";
 import { todoReducer } from "./todoReducer";
 import { TodoContext } from "./todoContext";
 import { ADD_TODO_ITEM, GET_TODO_LIST, REMOVE_TODO_ITEM_BY_ID } from './todoTypes';
-import { ITodoItem } from "../../components/types/ITodoItem";
+import { ITodoItem } from "../../types/ITodoItem";
 
 const initialState = {
     todo: {  

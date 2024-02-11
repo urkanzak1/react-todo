@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { ITodoItem } from '../components/types/ITodoItem';
+import { ITodoItem } from '../types/ITodoItem';
 
 const initialState: { todoList: ITodoItem[] } = {
     todoList: []
