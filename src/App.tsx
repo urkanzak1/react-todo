@@ -5,7 +5,7 @@ import { TodoLayout } from './components/hoc/Layout/TodoLayout';
 import { TodoList } from './components/todo/todo-list/TodoList';
 import { TodoState } from './context/todo/todoState';
 
-function App() {
+function App() { 
   return (
     <TodoLayout>
       <TodoState>
