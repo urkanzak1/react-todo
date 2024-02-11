@@ -1,23 +1,25 @@
 import * as React from 'react';
-import { useContext, useState } from "react";
-import { TodoContext } from "../../../context/todo/todoContext";
+import { addTodoItem } from '../../../redux/TodoSlice';
 import classes from  "./TodoCreate.module.scss";
+import { useDispatch } from 'react-redux';
+import { TodoDispatch } from '../../../redux/TodoStore';
 
 export const TodoCreate = () => {
 
-    const { addTodoItem } = useContext(TodoContext); 
-    const [state, setState] = useState({
+    const dispatch = useDispatch<TodoDispatch>();
+
+    const [state, setState] = React.useState({
         name: '',
         text: ''
     });
 
     const onClickHandler = () => {
         if (state.name && state.text){
-            addTodoItem({
+            dispatch(addTodoItem({
                 name: state.name,
                 text: state.text,
                 id: Math.random()
-            });
+            }));
             setState({
                 name: '',
                 text: ''

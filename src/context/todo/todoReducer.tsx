@@ -39,7 +39,6 @@ export const todoReducer = (state: any, action: any) => {
             return handlers[REMOVE_TODO_ITEM_BY_ID](state, action);
         }
         default: {
-            console.log(action);
             return handlers['DEFAULT'](state);
         }
     }

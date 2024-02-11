@@ -1,16 +1,19 @@
 import * as React from "react";
-import { useContext, useEffect } from 'react';
-import { TodoContext } from '../../../context/todo/todoContext';
+import { useEffect } from 'react';
 import { TodoItem } from '../todo-item/TodoItem';
 import classes from "./TodoList.module.scss";
 import { TodoCreate } from '../todo-create/TodoCreate';
+import { useDispatch, useSelector } from "react-redux";
+import { TodoDispatch, TodoState, TodoStore } from "../../../redux/TodoStore";
+import { getTodoList } from "../../../redux/TodoSlice";
 
 export const TodoList = () => {
  
-    const {todoList, getTodoList} = useContext(TodoContext);
+    const todoList = useSelector((state: TodoState) => state.todoList)
+    const dispatch = useDispatch<TodoDispatch>();
 
     useEffect(() => {
-            getTodoList();
+            dispatch(getTodoList());
         },
         // eslint-disable-next-line
     []);

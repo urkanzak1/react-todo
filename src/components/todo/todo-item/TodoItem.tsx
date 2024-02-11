@@ -1,14 +1,15 @@
 import * as React from "react";
-import { useContext } from "react";
 import classes from  "./TodoItem.module.scss";
-import { TodoContext } from "../../../context/todo/todoContext";
+import { removeTodoItemById } from "../../../redux/TodoSlice";
+import { useDispatch } from "react-redux";
+import { TodoDispatch } from "../../../redux/TodoStore";
 
 export const TodoItem = ({id, name, text}: {id: number, name: string, text: string}) => {
 
-    const { removeTodoItemById } = useContext(TodoContext);
+    const dispatch = useDispatch<TodoDispatch>();
 
     const deleteItemHandler = () => {
-        removeTodoItemById(id)
+        dispatch(removeTodoItemById(id));
     }
 
     return (
