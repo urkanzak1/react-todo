@@ -1,6 +1,6 @@
 import * as React from "react";
 import { useContext } from "react";
-import "./TodoItem.scss";
+import classes from  "./TodoItem.module.scss";
 import { TodoContext } from "../../../context/todo/todoContext";
 
 export const TodoItem = ({id, name, text}: {id: number, name: string, text: string}) => {
@@ -12,13 +12,13 @@ export const TodoItem = ({id, name, text}: {id: number, name: string, text: stri
     }
 
     return (
-        <div className="todo-item no-select">
-            <div className="btn-container">
+        <div className={`${classes['todo-item']} ${classes['no-select']}`}>
+            <div className={classes['btn-container']}>
                 <label className="text-center ps-3">{name}</label>
-                <button className="btn btn-danger rounded btn-todo" onClick={deleteItemHandler}>x</button>
+                <button className={`${classes['btn-todo']} btn btn-danger rounded`} onClick={deleteItemHandler}>x</button>
             </div>
             <hr />
-            <label className="min-height-150px ps-3">{text}</label>
+            <label className={`${classes['min-height-150px']} ps-3`}>{text}</label>
         </div>
     )
 }

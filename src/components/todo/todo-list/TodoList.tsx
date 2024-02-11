@@ -2,7 +2,7 @@ import * as React from "react";
 import { useContext, useEffect } from 'react';
 import { TodoContext } from '../../../context/todo/todoContext';
 import { TodoItem } from '../todo-item/TodoItem';
-import "./TodoList.scss";
+import classes from "./TodoList.module.scss";
 import { TodoCreate } from '../todo-create/TodoCreate';
 
 export const TodoList = () => {
@@ -16,13 +16,13 @@ export const TodoList = () => {
     []);
 
     return (
-        <div className="todoList">
+        <div className={classes.todoList}>
             {
                 todoList?.length > 0 ? 
                 todoList.map((item, index) => (
                     <TodoItem name={item.name} text={item.text} id={item.id} key={index} />
                 )):
-                <div className='no-select my-4'>No Data</div>
+                <div className={`${classes['no-select']} my-4`}>No Data</div>
             }
             <TodoCreate />
         </div>

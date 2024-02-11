@@ -13,7 +13,7 @@ const initialState = {
 
 export const TodoState = ({children}: { children: any }) => {
 
-    const [state, dispatch] = useReducer(todoReducer, initialState);
+    const [state, dispatch] = useReducer<(state: any, action: any) => any>(todoReducer, initialState);
 
     const {todoList}  = state.todo;
 
