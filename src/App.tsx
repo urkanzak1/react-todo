@@ -5,10 +5,12 @@ import { TodoLayout } from './components/hoc/Layout/TodoLayout';
 import { TodoList } from './components/todo/todo-list/TodoList';
 import { Provider } from 'react-redux';
 import { TodoStore } from './redux/TodoStore';
+import { Loader } from './components/loader/Loader';
 
 function App() { 
   return (
     <Provider store={TodoStore}>
+      <Loader></Loader>
       <TodoLayout>
           <BrowserRouter>
             <Routes>

@@ -1,8 +1,9 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { ITodoItem } from '../types/ITodoItem';
 
-const initialState: { todoList: ITodoItem[] } = {
-    todoList: []
+const initialState: { todoList: ITodoItem[], isLoading: boolean } = {
+    todoList: [],
+    isLoading: false
 }
 
 export const TodoSlice = createSlice({
@@ -15,6 +16,11 @@ export const TodoSlice = createSlice({
                 todoList = JSON.parse(localStorage.getItem('todo-list') ?? '{}') ?? [];
             }
             state.todoList = todoList;
+        },
+        setTodoList: (state, action) => {
+            if (action.payload.todoList){
+                state.todoList = action.payload.todoList;
+            }
         },
         addTodoItem: (state, action) => {
             let todoList = [...state.todoList];
@@ -31,10 +37,14 @@ export const TodoSlice = createSlice({
             }
             localStorage.setItem('todo-list', JSON.stringify(todoList));
             state.todoList =  todoList;
+        },
+        setLoading: (state, action) => {
+            console.log(action.payload)
+            state.isLoading = action.payload.loading;
         }
     }
 });
 
-export const { addTodoItem, getTodoList, removeTodoItemById } = TodoSlice.actions;
+export const { addTodoItem, getTodoList, removeTodoItemById, setLoading, setTodoList } = TodoSlice.actions;
 
 export default TodoSlice.reducer;
