@@ -1,13 +1,12 @@
 import * as React from "react";
-import { useEffect } from 'react';
+import { useEffect, useLayoutEffect } from 'react';
 import { TodoItem } from '../todo-item/TodoItem';
 import classes from "./TodoList.module.scss";
 import { TodoCreate } from '../todo-create/TodoCreate';
 import { useDispatch, useSelector } from "react-redux";
 import { TodoDispatch, TodoState } from "../../../redux/TodoStore";
 import { setTodoList, setLoading } from "../../../redux/TodoSlice";
-import { $getTodoList } from "../../../api/todoApi";
-import useEffectAsync from "../../../helpers/asyncUseEffect";
+import { $getTodoList, $syncGetTodoList } from "../../../api/todoApi";
 
 export const TodoList = () => {
  
@@ -15,6 +14,7 @@ export const TodoList = () => {
 
     const dispatch = useDispatch<TodoDispatch>();
 
+    //use effect with async data
     useEffect(() => {
             const fetchData = async () => {
                 dispatch(setLoading({ loading: true }));
@@ -26,6 +26,26 @@ export const TodoList = () => {
         },
         // eslint-disable-next-line
     []);
+
+    //use effect with sync data
+    // useEffect(() => {
+    //         dispatch(setLoading({ loading: true }));
+    //         const todoList = $syncGetTodoList();
+    //         dispatch(setTodoList({ todoList }));
+    //         dispatch(setLoading({ loading: false }));
+    //     },
+    //     // eslint-disable-next-line
+    // []);
+
+    // use layout effect with sync data 
+    // useLayoutEffect(() => {
+    //         dispatch(setLoading({ loading: true }));
+    //         const todoList = $syncGetTodoList();
+    //         dispatch(setTodoList({ todoList }));
+    //         dispatch(setLoading({ loading: false }));
+    //     },
+    //     // eslint-disable-next-line
+    // []);
 
     return (
         <div className={classes.todoList}>

@@ -39,7 +39,6 @@ export const TodoSlice = createSlice({
             state.todoList =  todoList;
         },
         setLoading: (state, action) => {
-            console.log(action.payload)
             state.isLoading = action.payload.loading;
         }
     }

@@ -7,7 +7,6 @@ export const Loader = (props: any) => {
 
     const isLoading = useSelector((state: TodoState) => state.isLoading);
 
-    console.log(isLoading);
     return (
         isLoading || props.isLoading
             ? <div className='text-center'>

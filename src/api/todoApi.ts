@@ -1,4 +1,6 @@
+import { sleep } from "../helpers/syncSleep";
 import { ITodoItem } from "../types/ITodoItem"
+
 
 export function $getTodoList(): Promise<ITodoItem[]>{
     return new Promise<ITodoItem[]>(resolve => {
@@ -12,14 +14,24 @@ export function $getTodoList(): Promise<ITodoItem[]>{
     });
 }
 
+export function $syncGetTodoList(): ITodoItem[] {
+    let todoList = [];
+    sleep(3000);
+    if (localStorage.getItem('todo-list')){
+        todoList = JSON.parse(localStorage.getItem('todo-list') ?? '{}') ?? [];
+    }
+    return todoList;
+}
+
 export function $addTodoItem(todoList: ITodoItem[], item: ITodoItem): Promise<ITodoItem[]>{
     return new Promise<ITodoItem[]>(resolve => {
+        const newList = [...todoList];
         setTimeout(() => {
             if (item){
-                todoList.push(item);
-                localStorage.setItem('todo-list', JSON.stringify(todoList));
+                newList.push(item);
+                localStorage.setItem('todo-list', JSON.stringify(newList));
             }
-            resolve(todoList);
+            resolve(newList);
         }, 1500);
     });
 }

@@ -1,12 +1,14 @@
 import * as React from 'react';
-import { addTodoItem } from '../../../redux/TodoSlice';
+import { setLoading, setTodoList } from '../../../redux/TodoSlice';
 import classes from  "./TodoCreate.module.scss";
-import { useDispatch } from 'react-redux';
-import { TodoDispatch } from '../../../redux/TodoStore';
+import { useDispatch, useSelector } from 'react-redux';
+import { TodoDispatch, TodoState } from '../../../redux/TodoStore';
+import { $addTodoItem } from '../../../api/todoApi';
 
 export const TodoCreate = () => {
 
     const dispatch = useDispatch<TodoDispatch>();
+    const todoList = useSelector((state: TodoState) => state.todoList);
 
     const [state, setState] = React.useState({
         name: '',
@@ -15,11 +17,15 @@ export const TodoCreate = () => {
 
     const onClickHandler = () => {
         if (state.name && state.text){
-            dispatch(addTodoItem({
+            dispatch(setLoading({loading: true}));
+            $addTodoItem(todoList, {
                 name: state.name,
                 text: state.text,
                 id: Math.random()
-            }));
+            }).then(todoList => {
+                dispatch(setTodoList({todoList}));
+                dispatch(setLoading({loading: false}));
+            })
             setState({
                 name: '',
                 text: ''
