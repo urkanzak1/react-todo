@@ -4,7 +4,7 @@ import { removeTodoItemById } from "../../../redux/TodoSlice";
 import { useDispatch } from "react-redux";
 import { TodoDispatch } from "../../../redux/TodoStore";
 
-export const TodoItem = ({id, name, text}: {id: number, name: string, text: string}) => {
+export const TodoItem = React.memo(function TodoItem({id, name, text}: {id: number, name: string, text: string}){
 
     const dispatch = useDispatch<TodoDispatch>();
 
@@ -22,4 +22,4 @@ export const TodoItem = ({id, name, text}: {id: number, name: string, text: stri
             <label className={`${classes['min-height-150px']} ps-3`}>{text}</label>
         </div>
     )
-}
+})

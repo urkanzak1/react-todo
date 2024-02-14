@@ -3,7 +3,7 @@ import clsases from "./Loader.module.scss";
 import { TodoState } from '../../redux/TodoStore';
 import { useSelector } from 'react-redux';
 
-export const Loader = (props: any) => {
+export const Loader = React.memo(function Loader(props: any){
 
     const isLoading = useSelector((state: TodoState) => state.isLoading);
 
@@ -15,4 +15,4 @@ export const Loader = (props: any) => {
             : props.children
     )
 
-}
+})
