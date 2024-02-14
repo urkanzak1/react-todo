@@ -3,7 +3,7 @@ import { useEffect, useLayoutEffect } from 'react';
 import { TodoItem } from '../todo-item/TodoItem';
 import classes from "./TodoList.module.scss";
 import { TodoCreate } from '../todo-create/TodoCreate';
-import { useDispatch, useSelector } from "react-redux";
+import {batch, useDispatch, useSelector} from "react-redux";
 import { TodoDispatch, TodoState } from "../../../redux/TodoStore";
 import { setTodoList, setLoading } from "../../../redux/TodoSlice";
 import { $getTodoList, $syncGetTodoList } from "../../../api/todoApi";
@@ -16,13 +16,13 @@ export const TodoList = () => {
 
     //use effect with async data
     useEffect(() => {
-            const fetchData = async () => {
-                dispatch(setLoading({ loading: true }));
-                const todoList = await $getTodoList();
-                dispatch(setTodoList({ todoList }));
-                dispatch(setLoading({ loading: false }));
-            }
-            fetchData()
+            dispatch(setLoading(true));
+
+              $getTodoList()
+                  .then(todoList => dispatch(setTodoList({ todoList })))
+                  .finally(() => dispatch(setLoading(false)))
+                  .catch(() => {})
+
         },
         // eslint-disable-next-line
     []);

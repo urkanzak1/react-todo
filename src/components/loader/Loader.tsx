@@ -2,9 +2,17 @@ import * as React from 'react';
 import clsases from "./Loader.module.scss";
 import { TodoState } from '../../redux/TodoStore';
 import { useSelector } from 'react-redux';
+import {PropsWithChildren} from "react";
 
-export const Loader = React.memo(function Loader(props: any){
+type LoaderProps = {
+    isLoading?: boolean
+}
 
+export const Loader = React.memo<PropsWithChildren<LoaderProps>>(function Loader(props){
+
+    // todo selectors
+    // todo createSelector
+    // todo typing
     const isLoading = useSelector((state: TodoState) => state.isLoading);
 
     return (

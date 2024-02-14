@@ -6,6 +6,7 @@ import { TodoDispatch } from "../../../redux/TodoStore";
 
 export const TodoItem = React.memo(function TodoItem({id, name, text}: {id: number, name: string, text: string}){
 
+    // todo app dispatch
     const dispatch = useDispatch<TodoDispatch>();
 
     const deleteItemHandler = () => {

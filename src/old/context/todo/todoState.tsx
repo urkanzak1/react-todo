@@ -11,6 +11,7 @@ const initialState = {
     }
 }
 
+// todo drop
 export const TodoState = ({children}: { children: any }) => {
 
     const [state, dispatch] = useReducer<(state: any, action: any) => any>(todoReducer, initialState);

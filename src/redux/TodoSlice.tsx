@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction, createSelector } from '@reduxjs/toolkit';
 import { ITodoItem } from '../types/ITodoItem';
 
 const initialState: { todoList: ITodoItem[], isLoading: boolean } = {
@@ -10,6 +10,9 @@ export const TodoSlice = createSlice({
     name: 'todo',
     initialState: initialState,
     reducers: {
+        // todo types
+        // todo tsx
+        // todo localStorage
         getTodoList: state => {
             let todoList = [];
             if (localStorage.getItem('todo-list')){
@@ -22,6 +25,7 @@ export const TodoSlice = createSlice({
                 state.todoList = action.payload.todoList;
             }
         },
+        // todo деструктуризация
         addTodoItem: (state, action) => {
             let todoList = [...state.todoList];
             if (action.payload){

@@ -6,6 +6,7 @@ export function $getTodoList(): Promise<ITodoItem[]>{
     return new Promise<ITodoItem[]>(resolve => {
         setTimeout(() => {
             let todoList = [];
+            // todo вынести работу с localStorage в отдельный модуль
             if (localStorage.getItem('todo-list')){
                 todoList = JSON.parse(localStorage.getItem('todo-list') ?? '{}') ?? [];
             }
