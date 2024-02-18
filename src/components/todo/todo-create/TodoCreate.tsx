@@ -17,14 +17,14 @@ export const TodoCreate = () => {
 
     const onClickHandler = () => {
         if (state.name && state.text){
-            todoDispatch(setLoading({loading: true}));
+            todoDispatch(setLoading(true));
             $addTodoItem(todoList, {
                 name: state.name,
                 text: state.text,
                 id: Math.random()
             }).then(todoList => {
-                todoDispatch(setTodoList({todoList}));
-                todoDispatch(setLoading({loading: false}));
+                todoDispatch(setTodoList(todoList));
+                todoDispatch(setLoading(false));
             })
             setState({
                 name: '',

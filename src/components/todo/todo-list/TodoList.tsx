@@ -18,7 +18,7 @@ export const TodoList = () => {
         todoDispatch(setLoading(true));
 
         $getTodoList()
-            .then(todoList => todoDispatch(setTodoList({ todoList })))
+            .then(todoList => todoDispatch(setTodoList(todoList)))
             .finally(() => todoDispatch(setLoading(false)))
             .catch(() => {})
         },
