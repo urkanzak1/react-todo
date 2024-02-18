@@ -1,15 +1,14 @@
 import * as React from "react";
 import classes from  "./TodoItem.module.scss";
 import { removeTodoItemById } from "../../../redux/TodoSlice";
-import { useDispatch } from "react-redux";
-import { TodoDispatch } from "../../../redux/TodoStore";
+import { useTodoDispatch } from "../../../redux/TodoStore";
 
 export const TodoItem = React.memo(function TodoItem({id, name, text}: {id: number, name: string, text: string}){
 
-    const dispatch = useDispatch<TodoDispatch>();
+    const todoDispatch = useTodoDispatch();
 
     const deleteItemHandler = () => {
-        dispatch(removeTodoItemById(id));
+        todoDispatch(removeTodoItemById(id));
     }
 
     return (

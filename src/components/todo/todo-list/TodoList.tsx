@@ -1,27 +1,25 @@
 import * as React from "react";
-import { useEffect, useLayoutEffect } from 'react';
+import { useEffect } from 'react';
 import { TodoItem } from '../todo-item/TodoItem';
 import classes from "./TodoList.module.scss";
 import { TodoCreate } from '../todo-create/TodoCreate';
-import { useDispatch } from "react-redux";
-import { TodoDispatch } from "../../../redux/TodoStore";
+import { useTodoDispatch, useTodoSelector } from "../../../redux/TodoStore";
 import { setTodoList, setLoading } from "../../../redux/TodoSlice";
 import { $getTodoList } from "../../../api/todoApi";
-import { todoListSelector, useTodoSelector } from "../../../redux/todoSelectors";
+import { todoListSelector } from "../../../redux/todoSelectors";
 
 export const TodoList = () => {
  
+    const todoDispatch = useTodoDispatch();
     const todoList = useTodoSelector(todoListSelector);
-
-    const dispatch = useDispatch<TodoDispatch>();
 
     //use effect with async data
     useEffect(() => {
             const fetchData = async () => {
-                dispatch(setLoading({ loading: true }));
+                todoDispatch(setLoading({ loading: true }));
                 const todoList = await $getTodoList();
-                dispatch(setTodoList({ todoList }));
-                dispatch(setLoading({ loading: false }));
+                todoDispatch(setTodoList({ todoList }));
+                todoDispatch(setLoading({ loading: false }));
             }
             fetchData()
         },
