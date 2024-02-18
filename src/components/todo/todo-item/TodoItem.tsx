@@ -1,9 +1,9 @@
-import * as React from "react";
 import classes from  "./TodoItem.module.scss";
 import { removeTodoItemById } from "../../../redux/TodoSlice";
 import { useTodoDispatch } from "../../../redux/TodoStore";
+import { memo } from "react";
 
-export const TodoItem = React.memo(function TodoItem({id, name, text}: {id: number, name: string, text: string}){
+export const TodoItem = memo(function TodoItem({id, name, text}: {id: number, name: string, text: string}){
 
     const todoDispatch = useTodoDispatch();
 

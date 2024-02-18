@@ -1,18 +1,18 @@
-import * as React from 'react';
 import clsases from "./Loader.module.scss";
 import { todoIsLoadingSelector } from '../../redux/todoSelectors';
 import { useTodoSelector } from '../../redux/TodoStore';
+import { Fragment, memo } from "react";
 
 type LoaderProps = {
     isLoading?: boolean;
 }
 
-export const Loader = React.memo<React.PropsWithChildren<LoaderProps>>(function Loader(props){
+export const Loader = memo<React.PropsWithChildren<LoaderProps>>(function Loader(props){
 
     const isLoading = useTodoSelector(todoIsLoadingSelector);
 
     return (
-        <React.Fragment>
+        <Fragment>
             { 
                 isLoading || props.isLoading
                     ? <div className='text-center'>
@@ -20,7 +20,7 @@ export const Loader = React.memo<React.PropsWithChildren<LoaderProps>>(function 
                       </div>
                     : props.children
             }
-        </React.Fragment>
+        </Fragment>
     )
 
 })

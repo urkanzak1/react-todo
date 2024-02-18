@@ -1,4 +1,3 @@
-import * as React from "react";
 import { useEffect } from 'react';
 import { TodoItem } from '../todo-item/TodoItem';
 import classes from "./TodoList.module.scss";
