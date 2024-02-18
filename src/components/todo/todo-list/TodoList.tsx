@@ -15,13 +15,12 @@ export const TodoList = () => {
 
     //use effect with async data
     useEffect(() => {
-            const fetchData = async () => {
-                todoDispatch(setLoading({ loading: true }));
-                const todoList = await $getTodoList();
-                todoDispatch(setTodoList({ todoList }));
-                todoDispatch(setLoading({ loading: false }));
-            }
-            fetchData()
+        todoDispatch(setLoading(true));
+
+        $getTodoList()
+            .then(todoList => todoDispatch(setTodoList({ todoList })))
+            .finally(() => todoDispatch(setLoading(false)))
+            .catch(() => {})
         },
         // eslint-disable-next-line
     []);
