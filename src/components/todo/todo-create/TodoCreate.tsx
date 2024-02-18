@@ -1,14 +1,15 @@
 import * as React from 'react';
 import { setLoading, setTodoList } from '../../../redux/TodoSlice';
 import classes from  "./TodoCreate.module.scss";
-import { useDispatch, useSelector } from 'react-redux';
-import { TodoDispatch, TodoState } from '../../../redux/TodoStore';
+import { useDispatch } from 'react-redux';
+import { TodoDispatch } from '../../../redux/TodoStore';
 import { $addTodoItem } from '../../../api/todoApi';
+import { todoListSelector, useTodoSelector } from '../../../redux/todoSelectors';
 
 export const TodoCreate = () => {
 
     const dispatch = useDispatch<TodoDispatch>();
-    const todoList = useSelector((state: TodoState) => state.todoList);
+    const todoList = useTodoSelector(todoListSelector);
 
     const [state, setState] = React.useState({
         name: '',

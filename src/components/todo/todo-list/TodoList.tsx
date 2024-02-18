@@ -3,14 +3,15 @@ import { useEffect, useLayoutEffect } from 'react';
 import { TodoItem } from '../todo-item/TodoItem';
 import classes from "./TodoList.module.scss";
 import { TodoCreate } from '../todo-create/TodoCreate';
-import { useDispatch, useSelector } from "react-redux";
-import { TodoDispatch, TodoState } from "../../../redux/TodoStore";
+import { useDispatch } from "react-redux";
+import { TodoDispatch } from "../../../redux/TodoStore";
 import { setTodoList, setLoading } from "../../../redux/TodoSlice";
-import { $getTodoList, $syncGetTodoList } from "../../../api/todoApi";
+import { $getTodoList } from "../../../api/todoApi";
+import { todoListSelector, useTodoSelector } from "../../../redux/todoSelectors";
 
 export const TodoList = () => {
  
-    const todoList = useSelector((state: TodoState) => state.todoList);
+    const todoList = useTodoSelector(todoListSelector);
 
     const dispatch = useDispatch<TodoDispatch>();
 

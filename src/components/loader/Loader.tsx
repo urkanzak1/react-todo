@@ -1,11 +1,10 @@
 import * as React from 'react';
 import clsases from "./Loader.module.scss";
-import { TodoState } from '../../redux/TodoStore';
-import { useSelector } from 'react-redux';
+import { todoIsLoadingSelector, useTodoSelector } from '../../redux/todoSelectors';
 
 export const Loader = React.memo(function Loader(props: any){
 
-    const isLoading = useSelector((state: TodoState) => state.isLoading);
+    const isLoading = useTodoSelector(todoIsLoadingSelector);
 
     return (
         isLoading || props.isLoading
