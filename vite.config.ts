@@ -1,8 +1,7 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import viteTsconfigPaths from 'vite-tsconfig-paths'
-
-const path = require('path')
+import path from 'path'
 
 export default defineConfig({
     // depending on your application, base can also be "/"
@@ -17,7 +16,7 @@ export default defineConfig({
     },
     resolve: {
         alias: {
-            '~bootstrap': path.resolve(__dirname, 'node_modules/bootstrap'),
+            '~bootstrap': path.resolve('', 'node_modules/bootstrap'),
         }
     }
 })

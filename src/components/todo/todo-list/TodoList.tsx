@@ -21,7 +21,6 @@ export const TodoList = () => {
             .finally(() => todoDispatch(setLoading(false)))
             .catch(() => {})
         },
-        // eslint-disable-next-line
     []);
 
     //use effect with sync data
@@ -31,7 +30,6 @@ export const TodoList = () => {
     //         dispatch(setTodoList({ todoList }));
     //         dispatch(setLoading({ loading: false }));
     //     },
-    //     // eslint-disable-next-line
     // []);
 
     // use layout effect with sync data 
@@ -41,7 +39,6 @@ export const TodoList = () => {
     //         dispatch(setTodoList({ todoList }));
     //         dispatch(setLoading({ loading: false }));
     //     },
-    //     // eslint-disable-next-line
     // []);
 
     return (
