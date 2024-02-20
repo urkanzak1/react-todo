@@ -28,6 +28,11 @@
     user-select: none;
 }
 
+// example
+.no-select > :global(.ps-3) {
+    user-select: none;
+}
+
 .min-height-150px { 
     min-height: 150px;
 }

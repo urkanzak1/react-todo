@@ -1,3 +1,6 @@
+// airbnb
+// итеграция prettier
+// import plugin / import/no-cycle
 module.exports = {
     "settings": {
         "react": {
