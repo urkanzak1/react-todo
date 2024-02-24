@@ -1,8 +1,10 @@
-import { PropsWithChildren } from "react";
-import classes from "./TodoLayout.module.scss";
+import { PropsWithChildren } from 'react';
+import classes from './TodoLayout.module.scss';
 
-export const TodoLayout = ({children}: PropsWithChildren) => (
+export function TodoLayout({ children }: PropsWithChildren) {
+  return (
     <div className={classes.AppLayout}>
-        {children}
+      {children}
     </div>
-);
+  );
+}

@@ -6,6 +6,7 @@ import { useTodoDispatch, useTodoSelector } from "../../../redux/TodoStore";
 import { setTodoList, setLoading } from "../../../redux/TodoSlice";
 import { $getTodoList } from "../../../api/todoApi";
 import { todoListSelector } from "../../../redux/todoSelectors";
+import cn from 'classnames';
 
 export const TodoList = () => {
  
@@ -48,7 +49,7 @@ export const TodoList = () => {
                 todoList.map((item, index) => (
                     <TodoItem name={item.name} text={item.text} id={item.id} key={index} />
                 )):
-                <div className={`${classes['no-select']} my-4`}>Loading...</div>
+                <div className={cn(classes.noSelect, 'my-4')}>Loading...</div>
             }
             <TodoCreate />
         </div>

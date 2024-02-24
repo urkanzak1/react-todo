@@ -4,6 +4,7 @@ import { useTodoDispatch, useTodoSelector } from '../../../redux/TodoStore';
 import { $addTodoItem } from '../../../api/todoApi';
 import { todoListSelector } from '../../../redux/todoSelectors';
 import { useState } from 'react';
+import cn from 'classnames';
 
 export const TodoCreate = () => {
 
@@ -40,13 +41,11 @@ export const TodoCreate = () => {
         });
     }
 
-    const AddButtonStyles: string = [classes.addButton, classes.rounded, "my-3"].join(' ');
-
     return (
         <div className={classes.TodoAdd}>
             <input name="name" className="form-control my-3" type="text" placeholder="input task name..." value={state.name || ''} onInput={onTodoCreateInputHandler} />
             <input name="text" className="form-control" type="text" placeholder="input task text..." value={state.text || ''} onInput={onTodoCreateInputHandler}  />
-            <div className={AddButtonStyles} onClick={onClickHandler}>Add +</div>
+            <div className={cn(classes.addButton, classes.rounded, 'my-3')} onClick={onClickHandler}>Add +</div>
         </div>
     )
 

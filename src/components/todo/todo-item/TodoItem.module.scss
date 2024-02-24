@@ -1,4 +1,3 @@
-
 .todo-item {
     min-width: 500px;
     align-items: center;
@@ -14,7 +13,7 @@
     justify-content: space-between;
 }
 
-.btn-todo { 
+.btn-todo {
     width: 28px;
     height: 28px;
     padding: 0;
@@ -28,6 +27,11 @@
     user-select: none;
 }
 
-.min-height-150px { 
+.min-height-150px {
     min-height: 150px;
 }
+
+// пример глобального стиля (игнорируется хеш класса)
+// :global(.my-class) {
+//     color: red;
+// }

@@ -1,6 +1,11 @@
 { 
+    "plugins": [
+      "stylelint-order",
+      "stylelint-prettier"  
+    ],
     "extends": [
-        "stylelint-config-standard-scss"
+      "stylelint-config-standard-scss",
+      "stylelint-prettier/recommended"
     ],
     "overrides": [
       {
@@ -9,7 +14,23 @@
       }
     ],
     "rules": {
-      "selector-class-pattern": "([a-z]+([A-Z][a-z0-9]+)*)",
-      "no-empty-source": null
+      "no-empty-source": null,
+      "selector-pseudo-class-no-unknown": null,
+      "rule-empty-line-before": null,
+      "order/order": [
+        "custom-properties",
+        "declarations"
+      ],
+      "order/properties-order": [
+        "width",
+        "height"
+      ],
+      "prettier/prettier": [
+        true, {
+          "singleQuote": true, 
+          "tabWidth": 4, 
+          "endOfLine": "auto"
+        }
+      ]
     }
 }

@@ -1,17 +1,24 @@
+/* eslint-disable */
+
 module.exports = {
     "settings": {
         "react": {
             "version": "detect"
         }
     },
+    "plugins": [
+        "@typescript-eslint",
+        "react"
+    ],
+    "extends": [
+        "eslint:recommended",
+        "plugin:react/recommended"
+        // "airbnb"
+    ],
     "env": {
         "browser": true,
         "es2021": true
     },
-    "extends": [
-        "eslint:recommended",
-        "plugin:react/recommended"
-    ],
     "overrides": [
         {
             "env": {
@@ -30,13 +37,10 @@ module.exports = {
         "ecmaVersion": "latest",
         "sourceType": "module"
     },
-    "plugins": [
-        "@typescript-eslint",
-        "react"
-    ],
     "rules": {
         "react/react-in-jsx-scope": "off",
         "react/prop-types": "off",
-        "no-constant-condition": "error"
+        "no-constant-condition": "error",
+        "import/prefer-default-export": "off"
     }
 }
