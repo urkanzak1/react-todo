@@ -6,6 +6,7 @@ import { Provider } from 'react-redux';
 import { TodoStore } from './redux/TodoStore';
 import { Loader } from './components/loader/Loader';
 
+//commit 1 to revert
 function App() { 
   return (
     <Provider store={TodoStore}>
