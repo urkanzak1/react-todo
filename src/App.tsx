@@ -6,6 +6,7 @@ import { Provider } from 'react-redux';
 import { TodoStore } from './redux/TodoStore';
 import { Loader } from './components/loader/Loader';
 
+//this commentary will cherry picked
 function App() { 
   return (
     <Provider store={TodoStore}>
