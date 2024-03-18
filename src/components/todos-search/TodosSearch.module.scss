@@ -1,0 +1,17 @@
+.todos-search {
+    user-select: none;
+    display: flex;
+    justify-content: center;
+    margin-top: 100px;
+    margin-left: 100px;
+    flex-direction: column;
+    input {
+        width: 300px;
+        margin-bottom: 20px;
+    }
+    .icon-completed {
+        display: inline;
+        padding-left: 10px;
+        color: green;
+    }
+}

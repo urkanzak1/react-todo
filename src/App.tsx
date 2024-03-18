@@ -5,6 +5,7 @@ import { TodoList } from './components/todo/todo-list/TodoList';
 import { Provider } from 'react-redux';
 import { TodoStore } from './redux/TodoStore';
 import { Loader } from './components/loader/Loader';
+import { TodosSearch } from './components/todos-search/TodosSearch';
 
 function App() { 
   return (
@@ -15,6 +16,7 @@ function App() {
             <Routes>
               <Route path="/" Component={TodoList} ></Route>
               <Route path="/auth"></Route>
+              <Route path="/todosSearch" Component={TodosSearch}></Route>
             </Routes>
           </BrowserRouter>
       </TodoLayout>
